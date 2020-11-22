@@ -11,10 +11,13 @@
 .container {
     width: 1140px;
     margin: 0 auto;
-    padding: 0;
+    padding: 0 97px;
 }
 
 @import "blocks/title";
 @import "blocks/promo";
 @import "blocks/header";
-@import "blocks/btns"
+@import "blocks/btns";
+@import "blocks/adv";
+@import "blocks/consultation";
+@import "blocks/slider";

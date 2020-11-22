@@ -1,0 +1,29 @@
+.slider {
+  position: relative;
+  padding-top: 108px;
+  height: 650px;
+  .tns-outer {
+    margin: 0 auto;
+    width: 750px;
+    img {
+      
+      display: block;
+      margin: 0 auto;
+    }
+  }
+  &__arrows {
+    width: 946px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  &__next {
+    cursor: pointer;
+    position: absolute;
+  }
+  &__prev {
+    cursor: pointer;
+    right: 0;
+    position: absolute;
+  }
+}
