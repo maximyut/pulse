@@ -3,7 +3,13 @@
   line-height: 1.2;
   font-weight: 700;
   color: #0d0d0d;
+  text-transform: uppercase;
+  &_fz16 {
+    font-size: 16px;
+    text-transform: none;
+  }
   &_fz18 {
+    text-transform: none;
     font-size: 18px;
   }
   &_fz36 {
