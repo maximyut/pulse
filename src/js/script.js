@@ -47,18 +47,18 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 
   //catalog
-  
-  let listShow = document.querySelectorAll('.catalog__item-link'),
-        listHide = document.querySelectorAll('.catalog__item-back'),
-        catalogContent = document.querySelectorAll('.catalog__item-content'),
-        catalogList = document.querySelectorAll('.catalog__item-list');
 
-  function showList (i) {
+  let listShow = document.querySelectorAll('.catalog__item-link'),
+    listHide = document.querySelectorAll('.catalog__item-back'),
+    catalogContent = document.querySelectorAll('.catalog__item-content'),
+    catalogList = document.querySelectorAll('.catalog__item-list');
+
+  function showList(i) {
     catalogContent[i].classList.add('hide', 'fade');
     catalogList[i].classList.add('show', 'fade');
   }
 
-  function hideList (i) {
+  function hideList(i) {
     catalogContent[i].classList.remove('hide');
     catalogList[i].classList.remove('show');
   }
@@ -104,7 +104,8 @@ window.addEventListener('DOMContentLoaded', () => {
       } else {
         this.classes.forEach(className => element.classList.add(className));
       }
-     
+
+
 
       element.innerHTML = `
           
@@ -153,5 +154,72 @@ window.addEventListener('DOMContentLoaded', () => {
     "4 500",
     "catalog__item"
   ).render();
-    
+
+  // function findParent() {
+  //   let parent = document.querySelectorAll('.catalog__wrapper');
+  //   let p;
+  //   for (let i = 0; i < 4; i++) {
+  //     parent.forEach ((item, i) => {
+  //      p = item.childNodes.length;
+  //     });
+  //     parent = document.querySelector('.catalog__wrapper');
+  //     console.log(parent);
+  //   }
+  // }
+  //  findParent();
+
+
+  // reviews
+
+  class Review {
+    constructor(src, alt, name, count, descr, ...classes) {
+      this.src = src;
+      this.alt = alt;
+      this.name = name;
+      this.count = count;
+      this.descr = descr;
+      this.classes = classes;
+      this.parent = document.querySelector('.reviews__wrapper');
+    }
+
+    render() {
+      const element = document.createElement('div');
+      if (this.classes.length === 0) {
+        this.element = 'reviews__item';
+        element.classList.add(this.element);
+      } else {
+        this.classes.forEach(className => element.classList.add(className));
+      }
+
+
+
+      element.innerHTML = `
+          
+        <img src="${this.src}" alt="">
+        <div class="reviews__text">
+            <div class="reviews__subtitle title title_fz18">${this.name}</div>
+            <div class="reviews__count">${this.count}</div>
+            <div class="reviews__descr">${this.descr}</div>
+        </div>
+
+        `;
+      this.parent.append(element);
+    }
+  }
+
+  new Review(
+    "img/Ivan.png",
+    "Ivan",
+    'Иван Сёмочкин',
+    '1 полумарафон',
+    "Крутая штука-пульсометр. Обычно без них бегал. Оказывается только хуже себе делал. Купил пульсометр, ещё в подарок получил тренировку. Со мной вместе провели первую тренировку, научили пользоваться новым гаджетом. Также объяснили основы анатомии, составили план тренировок на месяц вперёд.<br><br>С ними подготовился к своему первому полумарафону! Спасибо!!!",
+  ).render();
+
+  new Review(
+    "img/Ulia.png",
+    "Ulia",
+    'Юлия Дашкина',
+    '2 полумарафона',
+    "Долго не могла начать бегать, т.к. до этого несколько раз начинала, но становилось тяжело и я бросала. От друзей услышала о RunSmart и о беге с контролем пульса и решила попробовать.<br><br>Позвонила, ребята поинтересовались моими целями и подобрали очень интересный вариант со скидкой! Теперь бегаю и наслаждаюсь бегом! Пробежала уже 2 полумарафона и несколько более коротких забегов и не намерена останавливаться!<br><br>Спасибо!!!",
+  ).render();
 });
